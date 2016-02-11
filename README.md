@@ -3,7 +3,7 @@ A set of tools for setting up development environment
 
 This is a short guide about setting up Docker for a virtual machine development environment. It requires some bash and Apache knowledge
 
-# Tested on OSX EL Capitan only
+# Tested on OSX EL Capitan, Windows 10 only
 
 ## TODO: Verify installation and setup on Windows and Linux machines
 
@@ -12,8 +12,8 @@ This is a short guide about setting up Docker for a virtual machine development 
 1. install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. Install [Docker](https://docs.docker.com/mac/)
 3. Run Docker Quickstart Terminal after installation is complete
-4. Run `docker-machine start`
-5. Run `eval $(docker-machine env)`
+4. Run `docker-machine start default`
+5. Run `eval $(docker-machine env)` on OSX,  `eval $("C:\Program Files\Docker Toolbox\docker-machine.exe" env default)` on Windows
 6. Add to your `hosts` file this line `192.168.99.100 kambi-widgets.dev` - you can get your Docker ip by running `docker-machine config`
 7. Run `docker-compose up -d`. `-d` parameter is optional, tells Docker to run in "detached" mode ( in background )
 

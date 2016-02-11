@@ -7,6 +7,8 @@ This is a short guide about setting up Docker for a virtual machine development 
 
 ## TODO: Verify installation and setup on Windows and Linux machines
 
+##Installation
+
 1. install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. Install [Docker](https://docs.docker.com/mac/)
 3. Run Docker Quickstart Terminal after installation is complete

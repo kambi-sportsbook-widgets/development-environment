@@ -1,0 +1,15 @@
+#Container configuration
+
+#Service named widgets-hosting
+widgets-hosting:
+  #We're using the globalmouth/apache24 image from Docker Hub
+  image: globalmouth/apache24
+  #Give the container a name
+  container_name: kambi-container
+  #Default port mapping
+  ports:
+   - "80:80"
+  volumes:
+  #Default folder mapping, one for the projects root and another for linking the vhosts
+   - ./../:/var/www/git/
+   - ./apache/sites-enabled/:/usr/local/apache2/conf/sites-enabled

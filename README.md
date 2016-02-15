@@ -22,7 +22,7 @@ This is a short guide about setting up Docker for a virtual machine development 
 To change virtualhost configuration, edit the file `apache/sites-enabled/widgets-vhost.conf`.
 To add a virtualhost, add aliases as in the examples provided:
 - `Alias /league "/var/www/git/league-widget/src/"`, where `/league` is the directory for the path "( kambi-widgets.dev/league )" set in `client-widgets.js`,
-- `"/var/www/git/league-widget/src/"` points to project root in Docker Container.
+- `"/var/www/git/league-widget/src/"` points to project root in Docker Container. <b>Do not change `/var/www/git/` string</b>.
 - `/var/www/git` is configured as projects root on the Docker Virtual Machine, are set in `Dockerfile` and `docker-compose.yml` by default, should only be changed if you need to create another image, beside the default one (`globalmouth/apache24`)
 - `league-widget/src` is the path to be added/changed
 

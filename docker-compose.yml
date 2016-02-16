@@ -2,6 +2,7 @@
 
 #Service named widgets-hosting
 widgets-hosting:
+  env_file: .env
   #We're using the globalmouth/apache24 image from Docker Hub
   image: globalmouth/apache24
   #Give the container a name

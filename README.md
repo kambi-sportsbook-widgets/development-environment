@@ -19,14 +19,25 @@ This is a short guide about setting up Docker for a virtual machine development 
 
 ## Apache VirtualHost Configuration
 
-To change virtualhost configuration, edit the file `apache/sites-enabled/widgets-vhost.conf`.
-To add a virtualhost, add aliases as in the examples provided:
-- `Alias /league "/var/www/git/league-widget/src/"`, where `/league` is the directory for the path "( kambi-widgets.dev/league )" set in `client-widgets.js`,
-- `"/var/www/git/league-widget/src/"` points to project root in Docker Container. <b>Do not change `/var/www/git/` string</b>.
-- `/var/www/git` is configured as projects root on the Docker Virtual Machine, are set in `Dockerfile` and `docker-compose.yml` by default, should only be changed if you need to create another image, beside the default one (`globalmouth/apache24`)
-- `league-widget/src` is the path to be added/changed
+a. To change virtualhost configuration, add a file named `.env` to the root of this project with contents based on the following example.
 
-To apply the virtualhost configuration, stop the container (`docker stop kambi-container`) and start it again (`docker-compose up -d`). you can check anytime the current running containers with `docker ps`.
+__`.env`__
+
+```
+
+LIVENOW=livenow-widget/src/
+COMBO=combo-widget/src/
+LEAGUE=single-liveevent-widget/src/
+POLL=poll-widget/src/
+
+```
+
+The example above follows specifies apache environments variables ( key, value -> PARAM=VALUE ). The .env file is ignored in git and should not be commited.
+
+b. To assign a widget (league-widget) to the `COMBO` iframe for example, simply specify the repository name ( `league-widget` ) followed by `/src/` for source files or `/dist/` for the compiled widget.
+
+c. Apply the virtualhost configuration by stopping the container (`docker stop kambi-container`) and starting it again (`docker-compose up -d`).
+You can check anytime the current running containers with `docker ps -a`.
 
 All the widgets, documentation-tools, widget-library..., should be on the same directory level, as well as this repository:
 

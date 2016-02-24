@@ -14,8 +14,10 @@ This is a short guide about setting up Docker for a virtual machine development 
 3. Run Docker Quickstart Terminal after installation is complete
 4. Run `docker-machine start default`
 5. Run `eval $(docker-machine env)` on OSX,  `eval $("C:\Program Files\Docker Toolbox\docker-machine.exe" env default)` on Windows
-6. Add to your `hosts` file this line `192.168.99.100 kambi-widgets.dev` - you can get your Docker ip by running `docker-machine config`
-7. Run `docker-compose up -d`. `-d` parameter is optional, tells Docker to run in "detached" mode ( in background )
+6. Add this line to your `hosts` file `192.168.99.100 kambi-widgets.dev` - you can get your Docker ip by running `docker-machine config`
+7. Navigate to the folder where you've checked out the development-environment
+8. Create the .env file in the section below
+9. Run `docker-compose up -d`. `-d` parameter is optional, tells Docker to run in "detached" mode ( in background )
 
 ## Apache VirtualHost Configuration
 
@@ -25,16 +27,18 @@ __`.env`__
 
 ```
 
-LIVENOW=livenow-widget/src/
-COMBO=combo-widget/src/
-LEAGUE=single-liveevent-widget/src/
-POLL=poll-widget/src/
+WIDGET1=livenow-widget/src/
+WIDGET2=combo-widget/src/
+WIDGET3=single-liveevent-widget/src/
+WIDGET4=poll-widget/src/
+LIBRARY=/var/www/git/widget-library/
+TRANSLATE=/var/www/git/widget-core-translate/
 
 ```
 
 The example above follows specifies apache environments variables ( key, value -> PARAM=VALUE ). The .env file is ignored in git and should not be commited.
 
-b. To assign a widget (league-widget) to the `COMBO` iframe for example, simply specify the repository name ( `league-widget` ) followed by `/src/` for source files or `/dist/` for the compiled widget.
+b. To assign a widget (league-widget) to the `WIDGET1` iframe for example, simply specify the repository name ( `league-widget` ) followed by `/src/` for source files or `/dist/` for the compiled widget.
 
 c. Apply the virtualhost configuration by stopping the container (`docker stop kambi-container`) and starting it again (`docker-compose up -d`).
 You can check anytime the current running containers with `docker ps -a`.

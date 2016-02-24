@@ -1,0 +1,28 @@
+{
+   "_comment": "FOR DETAILED FORMAT LOOK AT https://docs.docker.com/reference/api/docker_remote_api_v1.16/#create-a-container",
+   "AttachStdin": true,
+   "Image": "globalmouth/apache24",
+   "OpenStdin": true,
+   "Env": [
+      "WIDGET1=livenow-widget/src/",
+      "WIDGET2=combo-widget/src/",
+      "WIDGET3=league-widget/src/",
+      "WIDGET4=poll-widget/src/"
+   ],
+   "Volumes": {
+      "/var/www/git/": {},
+      "/usr/local/apache2/conf/sites-enabled": {}
+   },
+   "HostConfig": {
+      "Binds" : [
+         "/Users/your-username/gits/kambi-project/development-environment/apache/sites-enabled:/usr/local/apache2/conf/sites-enabled:rw",
+         "/Users/your-username/gits/kambi-project/:/var/www/git:rw"
+      ],
+      "PortBindings" : {
+         "80/tcp" : [ {
+            "HostIp" : "",
+            "HostPort" : "80"
+         } ]
+      }
+   }
+}

@@ -7,3 +7,4 @@ node_modules
 docs
 *.map
 bower_components
+container_settings.json

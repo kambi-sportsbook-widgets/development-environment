@@ -13,7 +13,7 @@ This is a short guide about setting up Docker for a virtual machine development 
 2. Install [Docker](https://docs.docker.com/mac/)
 3. Run Docker Quickstart Terminal after installation is complete
 4. Run `docker-machine start default`
-5. Run `eval $(docker-machine env)` on OSX,  `eval $("C:\Program Files\Docker Toolbox\docker-machine.exe" env default)` on Windows
+5. Run `eval $(docker-machine env)` and add it to `.bash_profile` on OSX, `eval $("C:\Program Files\Docker Toolbox\docker-machine.exe" env default)` on Windows
 6. Add this line to your `hosts` file `192.168.99.100 kambi-widgets.dev` - you can get your Docker ip by running `docker-machine config`
 7. Navigate to the folder where you've checked out the development-environment
 8. Create the .env file in the section below
@@ -61,4 +61,13 @@ Files in this repository:
 - `docker-compose.yml` - configuration for running the Docker Container. It holds the port mapping ( 80:80 -> host port : docker port ), container name, volumes to be mounted on virtual machine
 - `Dockerfile` - configuration for building Docker Image, should be only used if a new image is needed.
 
-### TIPS:If you\'re using phpStorm/webStorm, install Docker support plugin, can be quite helpful
+### TIPS:If you\'re using phpStorm/webStorm, install Docker support plugin, can be quite helpful.
+
+### For debugging on mobile devices, yo can use [SquidMan](http://squidman.net/squidman/):
+- Install Squidman
+- In General tab, HTTP Port should be 8080.
+- In Clients tab, add a new entry, containing ip range for your network, eg: '192.168.68.0/24'
+- In Template tab, find the line `http_access deny to_localhost` and comment it out, so it becomes `#http_access deny to_localhost`
+- Same Template tab, add `hosts_file /etc/hosts`
+- On your mobile device, go to Wifi settings of the wifi network connected to and add a proxy ip address, which should point to the ip of your development machine, eg: `192.168.68.60`.
+- If everything was set correctly, you should be able to access 'kambi-widgets-dev' from your mobile.

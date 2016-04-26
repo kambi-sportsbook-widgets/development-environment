@@ -4,10 +4,13 @@
    "Image": "globalmouth/apache24",
    "OpenStdin": true,
    "Env": [
-      "WIDGET1=livenow-widget/src/",
-      "WIDGET2=combo-widget/src/",
-      "WIDGET3=league-widget/src/",
-      "WIDGET4=poll-widget/src/"
+      "WIDGET1=combo-widget/dist/",
+      "WIDGET2=livenow-widget/src/",
+      "WIDGET3=combo-widget/src/",
+      "WIDGET4=combo-widget/src/",
+      "CORE_LIB=/var/www/git/widget-core-library/",
+      "LIBRARY=/var/www/git/widget-library/",
+      "TRANSLATE=/var/www/git/widget-core-translate/"
    ],
    "Volumes": {
       "/var/www/git/": {},

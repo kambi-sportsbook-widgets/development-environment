@@ -10,7 +10,10 @@ widgets-hosting:
   #Default port mapping
   ports:
    - "80:80"
+   - "443:443"
   volumes:
   #Default folder mapping, one for the projects root and another for linking the vhosts
    - ./../:/var/www/git/
+   - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
    - ./apache/sites-enabled/:/usr/local/apache2/conf/sites-enabled
+   - ./apache/ssl/:/usr/local/apache2/conf/ssl

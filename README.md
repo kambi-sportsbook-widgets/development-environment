@@ -71,3 +71,13 @@ Files in this repository:
 - Same Template tab, add `hosts_file /etc/hosts`
 - On your mobile device, go to Wifi settings of the wifi network connected to and add a proxy ip address, which should point to the ip of your development machine, eg: `192.168.68.60`.
 - If everything was set correctly, you should be able to access 'kambi-widgets-dev' from your mobile.
+
+### Trust self signed certificate (OS X)
+- Open keychain Access
+- Click the padlock in the upper left corner to enable changes
+- Select System in the keychains section
+- Click the + sign at the bottom of the window
+- Navigate to the apache/ssl/ directory in this repository and select kambi-widgets.dev.cert
+- Double click the cert in the list and expand the Trust section
+- For the first option "When using this certificate" select "Always trust"
+- Close the certificate window

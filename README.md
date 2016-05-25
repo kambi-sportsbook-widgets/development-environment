@@ -73,11 +73,13 @@ Files in this repository:
 - If everything was set correctly, you should be able to access 'kambi-widgets-dev' from your mobile.
 
 ### Trust self signed certificate (OS X)
-- Open keychain Access
+- Open `keychain Access`
+- Select `System` in the keychains section and then select `Certificates` in the Category section
 - Click the padlock in the upper left corner to enable changes
-- Select System in the keychains section
-- Click the + sign at the bottom of the window
+- In the File menu select `Import items` or press `Shift Cmd i`
 - Navigate to the apache/ssl/ directory in this repository and select kambi-widgets.dev.cert
 - Double click the cert in the list and expand the Trust section
 - For the first option "When using this certificate" select "Always trust"
 - Close the certificate window
+
+You might need to open the url in a new window for the browser to pick up the changes

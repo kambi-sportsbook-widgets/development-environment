@@ -31,6 +31,7 @@ WIDGET1=livenow-widget/src/
 WIDGET2=combo-widget/src/
 WIDGET3=single-liveevent-widget/src/
 WIDGET4=poll-widget/src/
+CORE_LIB=widget-core-library/src/
 LIBRARY=/var/www/git/widget-library/
 TRANSLATE=/var/www/git/widget-core-translate/
 
